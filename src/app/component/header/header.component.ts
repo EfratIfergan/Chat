@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of as observableOf } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isLoggedIn$: Observable<boolean>;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {
+   this.isLoggedIn$= authService.isLoggedIn();
   }
 
+  ngOnInit(): void {
+
+  }
+
+  public loginWithGoogle(): void {
+    this.authService.signInWithGoogle();
+  }
+
+  public signOut(): any {
+    this.authService.signOut();
+  }
 }

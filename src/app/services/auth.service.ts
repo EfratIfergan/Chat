@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, of as observableOf } from 'rxjs';
 import { User } from '../models/user.interface';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { User } from '../models/user.interface';
 export class AuthService {
 
   private isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private userDetails$: Subject<User> =new Subject<User>();
+  private userDetails$: Subject<User | undefined> = new Subject<User | undefined>();
 
   constructor(
     private afAuth: AngularFireAuth,

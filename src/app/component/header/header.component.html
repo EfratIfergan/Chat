@@ -2,8 +2,13 @@
     <mat-toolbar color="primary">
         <span>Chat by Efrat</span>
         <span class="header__spacer"></span>
-        <button mat-raised-button class="icon" aria-label="Example icon-button with share icon">
-            login
+        <button mat-raised-button (click)="loginWithGoogle()" *ngIf="isLoggedIn$ ==false| async">
+            Login
         </button>
+        <ng-template #loggedIn>
+            <button mat-raised-button (click)="signOut()">
+               Logout
+           </button>
+        </ng-template>
     </mat-toolbar>
 </div>
