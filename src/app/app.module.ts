@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { HeaderComponent } from './component/header/header.component'
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { HeaderComponent } from './component/header/header.component'
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

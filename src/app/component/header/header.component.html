@@ -2,7 +2,7 @@
     <mat-toolbar color="primary">
         <span>Chat by Efrat</span>
         <span class="header__spacer"></span>
-        <button mat-raised-button (click)="loginWithGoogle()" *ngIf="isLoggedIn$ ==false| async">
+        <button mat-raised-button (click)="loginWithGoogle()" *ngIf="!isLoggedIn; else loggedIn">
             Login
         </button>
         <ng-template #loggedIn>
