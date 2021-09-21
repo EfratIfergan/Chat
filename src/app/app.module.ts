@@ -10,12 +10,22 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { HeaderComponent } from './component/header/header.component'
 import { AuthGuardService } from './services/auth-guard.service';
+import { ChatRoomListComponent } from './component/chat-room-list/chat-room-list.component';
+import { ChatContainerComponent } from './component/chat-container/chat-container.component';
+import { AddToomComponent } from './component/add-toom/add-toom.component';
+import { HomeComponent } from './component/home/home.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ChatRoomListComponent,
+    ChatContainerComponent,
+    AddToomComponent,
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
