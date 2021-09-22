@@ -15,6 +15,7 @@ import { ChatContainerComponent } from './component/chat-container/chat-containe
 import { AddToomComponent } from './component/add-toom/add-toom.component';
 import { HomeComponent } from './component/home/home.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { ChatComponent } from './component/chat/chat.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
     ChatContainerComponent,
     AddToomComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

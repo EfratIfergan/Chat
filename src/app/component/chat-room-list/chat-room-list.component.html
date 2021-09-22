@@ -1,6 +1,6 @@
 <div class="rooms">
     <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let room of rooms" [value]="room">
+        <mat-list-option *ngFor="let room of rooms" [value]="room" [routerLink]="['/Chat',room.id]">
             {{room.roomName}}
         </mat-list-option>
     </mat-selection-list>
