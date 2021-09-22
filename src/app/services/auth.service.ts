@@ -71,7 +71,9 @@ export class AuthService {
 
   private authLogin(provider: firebase.default.auth.AuthProvider) {
     return this.afAuth.signInWithPopup(provider).then(res => {
+      this.isLoggedIn$.next(true);
       this.setUserData(res.user as User);
+      this.router.navigate(['Chat']);
     })
   }
 }

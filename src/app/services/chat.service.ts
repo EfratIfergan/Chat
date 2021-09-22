@@ -1,18 +1,29 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { ChatRoomListComponent } from '../component/chat-room-list/chat-room-list.component';
+import { map, Observable } from 'rxjs';
+import { IChatRoom } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChatService {
+  constructor(private db: AngularFirestore) {}
 
-  constructor(private db:AngularFirestore) { }
-
-
-
-//   public getRooms():Observable<Array<>>{
-// this.db.collection("rooms").snapshotChanges()
-//   }
+  public getRooms(): Observable<Array<IChatRoom>> {
+    return this.db
+      .collection('rooms')
+      .snapshotChanges()
+      .pipe(
+        map((snaps) => {
+          return snaps.map((snap) => {
+            const id = snap.payload.doc.id;
+            const data = <IChatRoom>snap.payload.doc.data();
+            return <IChatRoom>{
+              ...data,
+              id,
+            };
+          });
+        })
+      );
+  }
 }
